@@ -360,7 +360,7 @@ console.log("i am connected");
 
         //INITIALLY WE WILL DEFINE A VARIABLE currentTab WITH 0 SO EVERY TIME WHEN THE PAGE LOADS THE PROCESSES STARTS FROM 1ST SCREEN
 
-        var currentTab = 1;
+        var currentTab = 0;
 
         //SHOW TAB IS A FUNCTION THAT SHOWS THE CURRENT TAB.
 
