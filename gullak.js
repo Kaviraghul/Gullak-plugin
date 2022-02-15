@@ -94,24 +94,7 @@ console.log("i am connected");
                 border-color: green;
             }
 
-            .upiNumber-${localObject.id}{
-                height:40px;
-                background-color: rgb(189, 189, 189);
-                display: flex; 
-                justify-content: center;
-                align-items: center;
-                margin-top: 10px;
-            }
-
-            .paymentButton-${localObject.id}{
-                height:40px;
-                background-color:green;
-                color: white;
-                display: flex; 
-                justify-content: center;
-                align-items: center;
-                margin-top: 10px;
-            }
+            
 
             .submitButton-${localObject.id}{
                 border:none;
@@ -140,19 +123,9 @@ console.log("i am connected");
                 cursor: pointer;
             }
 
-            .paymentList-${localObject.id}{
-                list-style:none;
-                padding:0;
-                margin: 0;
-            }
-
-            .paymentSelectBox-${localObject.id}{
-                height: 8px;
-                width: 8px;
-                border-radius: 50%;
-                border-style: solid;
-                border-width: thick;
-                border-color: gray;
+            .otpErrorStatement-${localObject.id}{
+                color: red;
+                display: none;
             }
 
 
@@ -261,6 +234,7 @@ console.log("i am connected");
                     <span class = "close-${localObject.id}" id = "modal-close-${localObject.id}">${localObject.finalProperties.closeBtnHTML}</span>
                     <form class="multiStepForm-${localObject.id}">
                         <div class="tab-${localObject.id}">
+                            <img class = "gullakLogo-${localObject.id}" alt ="" src ="images/gullak.png"></img>
                             <h1>Name and Phone Number:</h1>
                             <p><input placeholder="Name..." oninput="this.className = ''" name="fname"></p>
                             <p><input placeholder="Phone number..." oninput="this.className = ''" name="lname"></p>
@@ -268,6 +242,7 @@ console.log("i am connected");
                         <div class="tab-${localObject.id}">
                             <h1>OTP:</h1>
                             <p><input id ="userOTP-${localObject.id}" placeholder="Enter OTP" oninput="this.className = ''" name="otp"></p>
+                            <p id ="errorStatement-${localObject.id}" class="otpErrorStatement-${localObject.id}" >*please enter a valid 5 digit OTP</p>
                         </div>
                         <div class="tab-${localObject.id}">
                             <div class = "productsScreen-${localObject.id}">
@@ -385,7 +360,7 @@ console.log("i am connected");
 
         //INITIALLY WE WILL DEFINE A VARIABLE currentTab WITH 0 SO EVERY TIME WHEN THE PAGE LOADS THE PROCESSES STARTS FROM 1ST SCREEN
 
-        var currentTab = 0;
+        var currentTab = 1;
 
         //SHOW TAB IS A FUNCTION THAT SHOWS THE CURRENT TAB.
 
@@ -428,6 +403,7 @@ console.log("i am connected");
 
             if(currentTab == 1){
                 if( y[0].value != "12345" ){
+                    document.getElementById(`errorStatement-${localObject.id}`).style.display = "block";
                     y[0].className += "invalid";
                     return valid = false;
                 }
