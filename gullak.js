@@ -94,8 +94,10 @@ console.log("i am connected");
                 border-color: green;
             }
 
+            input.invalid {
+                background-color: #ffdddd;
+            }
             
-
             .submitButton-${localObject.id}{
                 border:none;
                 border-radius: 5px;
